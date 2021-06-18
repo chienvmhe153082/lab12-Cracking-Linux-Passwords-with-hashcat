@@ -53,4 +53,20 @@
       - include_role:
             name: "{{ inventory_hostname }}"
 
+- name: setup logging bash
+  hosts:
+    - hosts
+    - routers
+  gather_facts: yes
+  become: yes
+  become_user: root
+
+  roles:
+    - role: sandbox-logging-forward
+      slf_destination: '{{ hostvars["man"].ansible_host }}'
+      slf_sandbox_id: "{{ kypo_global_sandbox_allocation_unit_id }}"
+      slf_sandbox_name: '{{ kypo_global_sandbox_name }}'
+      slf_pool_id: '{{ kypo_global_pool_id }}'
+    - role: sandbox-logging-bash
+
 ...
