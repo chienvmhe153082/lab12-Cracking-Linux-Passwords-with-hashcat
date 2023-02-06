@@ -5,7 +5,8 @@
   user:
     name: 'kypo'
     shell: '/bin/bash'
-    group: 'sudo'
+    groups: 
+      - 'sudo'
     append: yes
 
 - name: Create alias for server

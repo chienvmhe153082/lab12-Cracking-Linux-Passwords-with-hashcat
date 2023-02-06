@@ -13,27 +13,6 @@
             name: kypo-disable-qxl
         when: ansible_os_family == 'Debian'
 
-- name: user access
-  hosts:
-      - user-accessible
-  gather_facts: no
-  become: yes
-  become_user: root
-
-  tasks:
-      - include_role:
-            name: kypo-user-access
-        vars:
-            kypo_user_access_username: '{{ user }}'
-            kypo_user_access_password: 'kypo'
-        with_items:
-            - kypo
-            - root
-        loop_control:
-            loop_var: user
-
-
-
 - name: Setting up Telnet server and client
   hosts:
     - server
@@ -52,6 +31,24 @@
 
       - include_role:
             name: "{{ inventory_hostname }}"
+
+- name: user access
+  hosts:
+      - client
+  gather_facts: no
+  become: yes
+  become_user: root
+  tasks:
+      - include_role:
+            name: kypo-user-access
+        vars:
+            kypo_user_access_username: '{{ user }}'
+            kypo_user_access_password: 'kypo'
+        with_items:
+            - kypo
+            - root
+        loop_control:
+            loop_var: user
 
 - name: setup logging bash
   hosts:
