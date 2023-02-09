@@ -1,10 +1,9 @@
 ---
 # This is a role for setting up the client.
 
-- name: Set default shell and sudo
+- name: Set sudo for user kypo
   user:
     name: 'kypo'
-    shell: '/bin/bash'
     groups: 
       - 'sudo'
     append: yes
