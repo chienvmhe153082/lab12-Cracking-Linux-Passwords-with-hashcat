@@ -6,38 +6,16 @@
       - hosts
   gather_facts: yes
   become: yes
-  become_user: root
-
   tasks:
       - include_role:
             name: kypo-disable-qxl
         when: ansible_os_family == 'Debian'
-
-- name: Setting up Telnet server and client
-  hosts:
-    - server
-    - client
-  become: yes
-  tasks:
-      - name: Test network connection using apt
-        apt:
-          update_cache: yes
-        register: apt_update
-        ignore_errors: yes
-
-      - name: Restart if broken network
-        reboot:
-        when: apt_update is failed
-
-      - include_role:
-            name: "{{ inventory_hostname }}"
 
 - name: user access
   hosts:
       - client
   gather_facts: no
   become: yes
-  become_user: root
   tasks:
       - include_role:
             name: kypo-user-access
@@ -50,14 +28,24 @@
         loop_control:
             loop_var: user
 
+- name: set up server
+  hosts: server
+  become: yes
+  roles:
+    - name: server
+
+- name: set up client
+  hosts: client
+  become: yes
+  roles:
+    - name: client
+
 - name: setup logging bash
   hosts:
     - hosts
     - routers
   gather_facts: yes
   become: yes
-  become_user: root
-
   roles:
     - role: sandbox-logging-forward
       slf_destination: '{{ hostvars["man"].ansible_host }}'
