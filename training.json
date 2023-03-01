@@ -201,30 +201,12 @@
       "success_rate" : 100
     } ]
   }, {
-    "title" : "Set up SSH access",
-    "phase_type" : "TRAINING",
+    "title" : "Get Access",
+    "phase_type" : "ACCESS",
     "order" : 2,
-    "estimated_duration" : 0,
-    "allowed_commands" : 0,
-    "allowed_wrong_answers" : 0,
-    "tasks" : [ {
-      "title" : "Set up SSH access",
-      "order" : 0,
-      "content" : "For accessing KYPO virtual machines using your local command-line tool, click on `Get SSH access` button to download ZIP file and then follow the instructions in the [documentation](https://docs.crp.kypo.muni.cz/user-guide-advanced/sandboxes/sandbox-access/#user-access). When you are ready to advance to the next phase, submit the answer provided by the organizer or click on `Solution` button. ",
-      "answer" : "startgame",
-      "solution" : "startgame",
-      "incorrect_answer_limit" : 100,
-      "modify_sandbox" : false,
-      "sandbox_change_expected_duration" : 0
-    } ],
-    "decision_matrix" : [ {
-      "order" : 0,
-      "questionnaire_answered" : 0.0,
-      "keyword_used" : 0.0,
-      "completed_in_time" : 0.0,
-      "solution_displayed" : 0.0,
-      "wrong_answers" : 0.0
-    } ]
+    "passkey" : "start",
+    "cloud_content" : "Your first task is to access the sandbox, where you will complete all following tasks. After you have successfully connected, Submit the answer **`start`**.\n\n### Sandbox access\n1. In the topology overview on the right, right-click on **`client`** and then click on **`Open Console`**, and a new pop-up window will appear. \n2. Login with username **`kypo`** and password **`kypo`**.\n\nAlternatively, you can use SSH to connect to the machine. SSH access makes it easier to copy-paste commands and flags, but requires more steps to set up. See [documentation](https://docs.crp.kypo.muni.cz/user-guide-advanced/sandboxes/sandbox-access/#user-access) for more details.",
+    "local_content" : "This sandbox has not been tested for use with local sandbox."
   }, {
     "title" : "Finding open ports",
     "phase_type" : "TRAINING",
@@ -235,7 +217,7 @@
     "tasks" : [ {
       "title" : "Finding open ports",
       "order" : 0,
-      "content" : "Your goal is to get access to a **server**. You know that there is a **telnet** service running on the server but it is not running on the default port. Your first task is to find the **port** on which the telnet service is running. The flag is the port number.\n\nBelow are two options how to connect to the client from which you can connect to the server.\n\n## GUI access\n1. In the topology overview, click the button in the top-right corner of the graph, then **`Expand All`**, **`client`** and **`Generate console URL`**. After a few moments, **`Open link`** next to the **`Generate console URL`** should appear.\n\n2. Login using username **`kypo`** and password **`kypo`**.\n\n## SSH from local machine\n1. Use the **`Get SSH Access`** button to download **`ssh-access.zip`**.\n\n2. Extract the **`ssh-access.zip`** file to your **`~/.ssh/`** directory.\n\n    `$ unzip ssh-access.zip -d ~/.ssh/`\n\n3. Execute the extracted source script in the current shell using the **`source`** command with the path to the KYPO proxy SSH private key. The source script that will set the **`ssh`** command and the **KYPO proxy SSH private key**, which is available from instance operator.\n\n    `$ source ~/.ssh/pool-id-<pool_ID>-sandbox-id-<sbx_ID>-user-source.sh PATH_TO_KYPO_PROXY_PRIVATE_KEY`\n\n4. Connect to the client to **`kypo`** user. \n\n    `$ ssh kypo@client`",
+      "content" : "Your goal is to get access to a **server**. You know that there is a **telnet** service running on the server but it is not running on the default port. Your first task is to find the **port** on which the telnet service is running. The flag is the port number.",
       "answer" : "2323",
       "solution" : "1. Connect to the client using either of the options.\n\n2. Look for open ports using the command **`nmap server`**. You can see **ssh** running on port **22** and some other service running on port **2323**. This has to be the **telnet** service.\n\n3. Enter **`2323`** as the flag.",
       "incorrect_answer_limit" : 10,
@@ -244,28 +226,23 @@
     }, {
       "title" : "Finding open ports",
       "order" : 1,
-      "content" : "Your goal is to get access to a **server**. You know that there is a **telnet** service running on the server but it is not running on the default port. Your first task is to find the **port** on which the telnet service is running. The flag is the port number.\n\nBelow are two options how to connect to the client from which you can connect to the server.\n\n## GUI access\n1. In the topology overview, click the button in the top-right corner of the graph, then **`Expand All`**, **`client`** and **`Generate console URL`**. After a few moments, **`Open link`** next to the **`Generate console URL`** should appear.\n\n2. Login using username **`kypo`** and password **`kypo`**.\n\n## SSH from local machine\n1. Use the **`Get SSH Access`** button to download **`ssh-access.zip`**.\n\n2. Extract the **`ssh-access.zip`** file to your **`~/.ssh/`** directory.\n\n    `$ unzip ssh-access.zip -d ~/.ssh/`\n\n3. Execute the extracted source script in the current shell using the **`source`** command with the path to the KYPO proxy SSH private key. The source script that will set the **`ssh`** command and the **KYPO proxy SSH private key**, which is available from instance operator.\n\n    `$ source ~/.ssh/pool-id-<pool_ID>-sandbox-id-<sbx_ID>-user-source.sh PATH_TO_KYPO_PROXY_PRIVATE_KEY`\n\n4. Connect to the client to **`kypo`** user. \n\n    `$ ssh kypo@client`\n\nA common tool to find open ports is **nmap**. You can learn how to use nmap using **`nmap --help`** or by searching online.",
+      "content" : "Your goal is to get access to a **server**. You know that there is a **telnet** service running on the server but it is not running on the default port. Your first task is to find the **port** on which the telnet service is running. The flag is the port number.\n\nA common tool to find open ports is **nmap**. You can learn how to use nmap using **`nmap --help`** or by searching online.",
       "answer" : "2323",
-      "solution" : "1. Connect to the client using either of the options.\n\n2. Look for open ports using the command **`nmap server`**. You can see **ssh** running on port **22** and some other service running on port **2323**. This has to be the **telnet** service.\n\n3. Enter **`2323`** as the flag.",
+      "solution" : "1. Look for open ports using the command **`nmap server`**. You can see **ssh** running on port **22** and some other service running on port **2323**. This has to be the **telnet** service.\n\n2. Enter **`2323`** as the flag.",
       "incorrect_answer_limit" : 10,
       "modify_sandbox" : false,
       "sandbox_change_expected_duration" : 0
     } ],
     "decision_matrix" : [ {
       "order" : 0,
-      "questionnaire_answered" : 0.0,
-      "keyword_used" : 0.0,
-      "completed_in_time" : 0.0,
-      "solution_displayed" : 0.0,
-      "wrong_answers" : 0.0
-    }, {
-      "order" : 1,
       "questionnaire_answered" : 1.0,
       "keyword_used" : 0.0,
       "completed_in_time" : 0.0,
       "solution_displayed" : 0.0,
       "wrong_answers" : 0.0
-    } ]
+    } ],
+    "mitre_techniques" : [ ],
+    "expected_commands" : [ ]
   }, {
     "title" : "Connecting via Telnet",
     "phase_type" : "TRAINING",
@@ -305,24 +282,19 @@
       "order" : 0,
       "questionnaire_answered" : 0.0,
       "keyword_used" : 0.0,
-      "completed_in_time" : 0.0,
-      "solution_displayed" : 0.0,
-      "wrong_answers" : 0.0
-    }, {
-      "order" : 1,
-      "questionnaire_answered" : 0.0,
-      "keyword_used" : 0.0,
       "completed_in_time" : 1.0,
       "solution_displayed" : 1.0,
       "wrong_answers" : 0.0
     }, {
-      "order" : 2,
+      "order" : 1,
       "questionnaire_answered" : 1.0,
       "keyword_used" : 0.0,
       "completed_in_time" : 0.0,
       "solution_displayed" : 0.0,
       "wrong_answers" : 0.0
-    } ]
+    } ],
+    "mitre_techniques" : [ ],
+    "expected_commands" : [ ]
   }, {
     "title" : "Privilege Escalation",
     "phase_type" : "TRAINING",
@@ -353,31 +325,26 @@
       "order" : 0,
       "questionnaire_answered" : 0.0,
       "keyword_used" : 0.0,
-      "completed_in_time" : 0.0,
-      "solution_displayed" : 0.0,
-      "wrong_answers" : 0.0
-    }, {
-      "order" : 1,
-      "questionnaire_answered" : 0.0,
-      "keyword_used" : 0.0,
       "completed_in_time" : 1.0,
       "solution_displayed" : 1.0,
       "wrong_answers" : 0.0
     }, {
-      "order" : 2,
+      "order" : 1,
       "questionnaire_answered" : 0.0,
       "keyword_used" : 1.0,
       "completed_in_time" : 1.0,
       "solution_displayed" : 0.0,
       "wrong_answers" : 1.0
     }, {
-      "order" : 3,
+      "order" : 2,
       "questionnaire_answered" : 0.0,
       "keyword_used" : 0.0,
       "completed_in_time" : 0.0,
       "solution_displayed" : 0.0,
       "wrong_answers" : 0.0
-    } ]
+    } ],
+    "mitre_techniques" : [ ],
+    "expected_commands" : [ ]
   }, {
     "title" : "Questionnaire example",
     "phase_type" : "QUESTIONNAIRE",
@@ -467,5 +434,5 @@
     "questionnaire_type" : "GENERAL",
     "phase_relations" : [ ]
   } ],
-  "estimated_duration" : 0
+  "estimated_duration" : 33
 }
