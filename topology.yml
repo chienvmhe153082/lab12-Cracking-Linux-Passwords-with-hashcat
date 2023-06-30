@@ -1,4 +1,4 @@
-name: kypo-crp-demo-training-adaptive
+name: kypo-crp-demo-training-GUI
 
 hosts:
   - name: server
