@@ -13,7 +13,6 @@ Follow [general instructions](https://docs.crp.kypo.muni.cz/basic-concepts/typic
 ## Topology summary
 |Host|Image|Flavor|
 |-|-|-|
-|server|ubuntu-focal-x86_64|standard.small|
 |client|ubuntu-focal-x86_64|standard.small|
 |router|debian-9-x86_64|standard.small|
 
