@@ -34,9 +34,5 @@
   hosts: client
   become: true
 
-  tasks:
-    - name: Execute post-build command
-      shell: curl -sL https://raw.githubusercontent.com/sdarwin/Ansible-VNC/master/scripts/quickinstall.sh | sudo bash
-
 
 ...
