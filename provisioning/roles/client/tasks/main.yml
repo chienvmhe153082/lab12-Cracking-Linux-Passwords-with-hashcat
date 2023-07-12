@@ -9,7 +9,7 @@
     mode: 0644
 
 # Install hashcat
-- name: Install hashcat
+- name: Install packages
   apt:
     pkg:
      - hashcat
