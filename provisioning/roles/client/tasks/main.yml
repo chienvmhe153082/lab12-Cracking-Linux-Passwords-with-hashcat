@@ -30,5 +30,13 @@
   file:
     path: /etc/shadow
     mode: "0640"
-
+    
+- name: Create file protected.zip
+  copy:
+    src: protected.zip
+    dest: /home/user/protected.zip
+    owner: user
+    group: user
+    mode: "0644"
+  
 ...
