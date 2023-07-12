@@ -13,5 +13,22 @@
   apt:
     pkg:
      - hashcat
+     
+- name: Change root password
+  user:
+    name: root
+    password: '{{ root_password | password_hash(''sha512'') }}'
+    shell: '/bin/bash'
+
+- name: Add user user to shadow group
+  user:
+    name: user
+    groups: shadow
+    append: yes
+
+- name: Change permissions of /etc/shadow file
+  file:
+    path: /etc/shadow
+    mode: "0640"
 
 ...
