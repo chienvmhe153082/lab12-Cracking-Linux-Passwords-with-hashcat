@@ -8,4 +8,10 @@
     owner: user
     mode: 0644
 
+# Install hashcat
+- name: Install hashcat
+  apt:
+    pkg:
+     - hashcat
+
 ...
