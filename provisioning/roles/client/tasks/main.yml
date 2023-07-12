@@ -13,6 +13,7 @@
   apt:
     pkg:
      - hashcat
+    update_cache: yes
      
 - name: Change root password
   user:
