@@ -13,7 +13,8 @@
   apt:
     pkg:
      - hashcat
-     - nvidia-driver-525 nvidia-dkms-525
+     - nvidia-driver-525
+     - nvidia-dkms-525
      - ocl-icd-opencl-dev
     update_cache: yes
      
