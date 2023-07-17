@@ -8,15 +8,21 @@
     owner: user
     mode: 0644
 
-# Install hashcat
+# Install package
 - name: Install packages
   apt:
     pkg:
-     - hashcat
+#     - hashcat
      - unzip
      - git
      - snapd
     update_cache: yes
+    
+- name: Clone hashcat
+  git: 
+    repo: sudo git clone https://github.com/hashcat/hashcat.git -y
+    dest: /home/user
+    
 # Install John-the-ripper
 - name: Install john-the-ripper
   shell: sudo snap install john-the-ripper
