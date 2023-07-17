@@ -14,7 +14,17 @@
     pkg:
      - hashcat
      - unzip
+     - git
     update_cache: yes
+# Install John
+- name: Clone John the Ripper repository
+  git:
+    repo: https://github.com/openwall/john.git
+    dest: /home/user/john
+
+- name: Configure John the Ripper
+  shell: ./configure --without-openssl && make
+  ignore_errors: true
      
 - name: Change root password
   user:
