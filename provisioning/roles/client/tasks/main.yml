@@ -20,7 +20,7 @@
     
 - name: Clone hashcat
   git: 
-    repo: sudo git clone https://github.com/hashcat/hashcat.git -y
+    shell: git clone https://github.com/hashcat/hashcat.git
     dest: /home/user
     
 # Install John-the-ripper
