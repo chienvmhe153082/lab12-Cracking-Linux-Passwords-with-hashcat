@@ -15,8 +15,6 @@
 - name: set up client
   hosts: client
   become: yes
-  vars:
-    root_password: "strongpass"
   roles:
     - name: kypo-user-access
       kypo_user_access_username: user
