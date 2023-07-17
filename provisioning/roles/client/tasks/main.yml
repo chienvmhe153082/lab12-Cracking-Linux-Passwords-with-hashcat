@@ -32,10 +32,10 @@
     path: /etc/shadow
     mode: "0640"
     
-- name: Create file protected.zip
+- name: Create file flag.zip
   copy:
-    src: protected.zip
-    dest: /home/user/protected.zip
+    src: flag.zip
+    dest: /home/user/flag.zip
     owner: user
     group: user
     mode: "0644"
