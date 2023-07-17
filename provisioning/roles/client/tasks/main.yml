@@ -13,9 +13,7 @@
   apt:
     pkg:
      - hashcat
-     - nvidia-driver-525
-     - nvidia-dkms-525
-     - ocl-icd-opencl-dev
+     - unzip
     update_cache: yes
      
 - name: Change root password
