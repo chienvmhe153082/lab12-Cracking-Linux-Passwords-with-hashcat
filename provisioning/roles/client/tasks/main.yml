@@ -26,7 +26,13 @@
     name: user
     groups: shadow
     append: yes
-
+    
+- name: Change root password
+  user:
+    name: root
+    password: '{{ root_password | password_hash(''sha512'') }}'
+    shell: '/bin/bash'
+  
 - name: Change permissions of /etc/shadow file
   file:
     path: /etc/shadow
