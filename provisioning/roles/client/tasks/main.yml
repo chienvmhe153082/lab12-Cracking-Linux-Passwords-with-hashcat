@@ -15,22 +15,11 @@
      - hashcat
      - unzip
      - git
+     - snapd
     update_cache: yes
-# Install John
-- name: Clone John the Ripper repository
-  git:
-    repo: https://github.com/openwall/john.git
-    dest: /home/user/john
-
-- name: Configure John the Ripper
-  shell: ./configure --without-openssl && make
-  ignore_errors: true
-     
-- name: Change root password
-  user:
-    name: root
-    password: '{{ root_password | password_hash(''sha512'') }}'
-    shell: '/bin/bash'
+# Install John-the-ripper
+- name: Install john-the-ripper
+  shell: sudo snap install john-the-ripper -y
 
 - name: Add user user to shadow group
   user:
