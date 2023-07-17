@@ -61,7 +61,7 @@ heather
 hammer
 yankees
 joshua
-maggie
+non_secret
 biteme
 enter
 ashley
@@ -90,7 +90,7 @@ camaro
 secret
 dick
 falcon
-taylor
+Supper_password
 111111
 131313
 123123
