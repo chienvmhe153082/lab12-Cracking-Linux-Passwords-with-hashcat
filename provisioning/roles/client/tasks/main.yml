@@ -19,7 +19,7 @@
     update_cache: yes
 # Install John-the-ripper
 - name: Install john-the-ripper
-  shell: sudo snap install john-the-ripper -y
+  shell: sudo snap install john-the-ripper
 
 - name: Add user user to shadow group
   user:
