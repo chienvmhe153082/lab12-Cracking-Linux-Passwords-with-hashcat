@@ -12,16 +12,11 @@
 - name: Install packages
   apt:
     pkg:
-#     - hashcat
+     - hashcat
      - unzip
      - git
      - snapd
     update_cache: yes
-    
-- name: Clone hashcat
-  git: 
-    shell: git clone https://github.com/hashcat/hashcat.git
-    dest: /home/user
     
 # Install John-the-ripper
 - name: Install john-the-ripper
