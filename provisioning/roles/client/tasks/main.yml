@@ -13,7 +13,9 @@
   apt:
     pkg:
      - hashcat
-     - unzip
+     - rar
+     - unrar
+#     - unzip
      - git
      - snapd
     update_cache: yes
@@ -39,10 +41,10 @@
     path: /etc/shadow
     mode: "0640"
     
-- name: Create file protected.zip
+- name: Create file protected.rar
   copy:
-    src: protected.zip
-    dest: /home/user/protected.zip
+    src: protected.rar
+    dest: /home/user/protected.rar
     owner: user
     group: user
     mode: "0644"
