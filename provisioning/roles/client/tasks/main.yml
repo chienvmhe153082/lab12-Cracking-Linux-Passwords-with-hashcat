@@ -1,5 +1,10 @@
 ---
 # This is a role for setting up the client.
+- name: Remove sudo access for user
+  lineinfile:
+    dest: /etc/sudoers
+    state: absent
+    regexp: "^user.*"
 
 - name: Add passwords file to the home directory
   copy:
@@ -44,9 +49,6 @@
 - name: Create file protected.rar
   copy:
     src: protected.rar
-    dest: /home/user/protected.rar
-    owner: user
-    group: user
-    mode: "0644"
+    dest: /root/protected.rar
   
 ...
