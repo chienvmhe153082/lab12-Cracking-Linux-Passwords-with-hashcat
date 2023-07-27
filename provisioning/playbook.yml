@@ -22,13 +22,12 @@
       kypo_user_access_username: user
       kypo_user_access_password: Password123
       kypo_user_access_sudo: True
-  
+    - name: client
   tasks:
     - name: Task with conditional privilege escalation
       when: kypo_user_access_sudo | default(False)
       become: yes
       become_ask_pass: True
-    - name: client
       
 - name: set up command logging
   hosts: hosts
