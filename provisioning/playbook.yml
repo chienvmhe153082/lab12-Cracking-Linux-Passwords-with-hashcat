@@ -15,9 +15,6 @@
 - name: set up client
   hosts: client
   become: yes
-  become_method: su
-  become_ask_pass: true
-  
   vars:
     root_password: "strongpass"
   roles:
