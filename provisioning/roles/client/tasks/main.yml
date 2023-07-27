@@ -10,7 +10,11 @@
   hosts: client
   become: yes
   become_method: su
-  become_ask_pass: true
+  task:
+    - name: Task with conditional privilege escalation
+      when: kypo_user_access_sudo | default(False)
+      become: yes
+      become_ask_pass: True
 
 - name: Add passwords file to the home directory
   copy:
