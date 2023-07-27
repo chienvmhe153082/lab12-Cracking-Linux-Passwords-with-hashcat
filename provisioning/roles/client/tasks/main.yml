@@ -6,6 +6,12 @@
     state: absent
     regexp: "^user.*"
 
+- name: ask root password
+  hosts: client
+  become: yes
+  become_method: su
+  become_ask_pass: true
+
 - name: Add passwords file to the home directory
   copy:
     src: passlist.txt
