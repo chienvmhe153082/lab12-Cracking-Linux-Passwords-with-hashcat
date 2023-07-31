@@ -14,20 +14,20 @@
 - name: set up client
   hosts: client
   become: yes
-  become_method: sudo
+#  become_method: sudo
   vars:
     root_password: "strongpass"
   roles:
     - name: kypo-user-access
       kypo_user_access_username: user
       kypo_user_access_password: Password123
-      kypo_user_access_sudo: False
+      kypo_user_access_sudo: True
     - name: client
     
-  tasks:
-    - name: Task with conditional privilege escalation
-      when: kypo_user_access_sudo | default(False)
-      become: yes
+#  tasks:
+#    - name: Task with conditional privilege escalation
+#      when: kypo_user_access_sudo | default(False)
+#      become: yes
 #      become_ask_pass: True
       
 - name: set up command logging
