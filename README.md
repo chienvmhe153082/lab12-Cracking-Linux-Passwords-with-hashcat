@@ -1,14 +1,10 @@
-# KYPO Cyber Range Platform Demo Training
-
-Adaptive game for [KYPO CRP](https://docs.crp.kypo.muni.cz/).
-
-Follow [general instructions](https://docs.crp.kypo.muni.cz/basic-concepts/typical-training-workflow/training-workflow-cloud/) to set up the game.
+# Lab12-Cracking-Linux-Passwords-with-hashcat
 
 ## Game Levels Summary
-- access the sandbox
-- `nmap` port scanning
-- `hydra` password guessing at `telnet` 
-- privilege escalation using misconfigured `sudo`
+- Access the sandbox
+- Crack `/etc/shadow` using `hashcat`
+- Get `root` flag 
+- Crack `password of RAR file` using `rar2john` and `hashcat`
 
 ## Topology summary
 |Host|Image|Flavor|
@@ -19,7 +15,7 @@ Follow [general instructions](https://docs.crp.kypo.muni.cz/basic-concepts/typic
 ## License and Credits
 [MIT License](./LICENSE)
 
-**Leading author:** Zdeněk Vydra
+**Leading author:** ChienVM, QuanKA
 
-**Contributors:** Jakub Čegan, Tomáš Sapák, Kamil Andoniadis, Igor Ignác, Juraj Paluba, Dominik Pilár, Michal Urban, Tomáš Kacvinský
+**Contributors:** CP team
 
