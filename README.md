@@ -12,9 +12,6 @@
 |client|ubuntu-focal-x86_64|standard.small|
 |router|debian-9-x86_64|standard.small|
 
-## License and Credits
-[MIT License](./LICENSE)
-
 **Leading author:** ChienVM, QuanKA
 
 **Contributors:** CP team
